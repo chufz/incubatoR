@@ -32,7 +32,7 @@ Follwing calculation steps are provided:
  
       *XCMS:*
       
-      **INPUT:** `settings_xcms.yaml`, `class.cav`, `globalvar.sh`
+      **INPUT:** `settings_xcms.yaml`, `class.csv`, `globalvar.sh`
       
       **OUTPUT:** `xcms.RData`
       
