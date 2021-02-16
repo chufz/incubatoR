@@ -38,7 +38,7 @@ Follwing calculation steps are provided:
       
       *CAMERA:*
       
-      **INPUT:** settingsfile, `xcms.RData`, `globalvar.sh`
+      **INPUT:** `settings_camera.yaml`, `xcms.RData`, `globalvar.sh`
       
       **OUTPUT:** `camera.RData`, `metadata.tsv`, `peaklist.tsv`
       
@@ -78,7 +78,7 @@ Follwing calculation steps are provided:
  
  [2] Hochreiter, S. Bioinformatics Research and Development: First International Conference, BIRD 2007, Berlin, Germany, March 12-14, 2007, Proceedings; Springer Science & Business Media, 2007.
  
- [3] (1) Kumar, N.; Hoque, Md. A.; Sugimoto, M. Robust Volcano Plot: Identification of Differential Metabolites in the Presence of Outliers. BMC Bioinformatics 2018, 19. https://doi.org/10.1186/s12859-018-2117-2.
+ [3] Kumar, N.; Hoque, Md. A.; Sugimoto, M. Robust Volcano Plot: Identification of Differential Metabolites in the Presence of Outliers. BMC Bioinformatics 2018, 19. https://doi.org/10.1186/s12859-018-2117-2.
  
  [4] Gatto, L.; Lilley, K. S. MSnbase-an R/Bioconductor Package for Isobaric Tagged Mass Spectrometry Data Visualization, Processing and Quantitation. Bioinformatics 2012, 28 (2), 288–289. https://doi.org/10.1093/bioinformatics/btr645.
  
