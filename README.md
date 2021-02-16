@@ -68,11 +68,69 @@ Follwing calculation steps are provided:
       
  6. Molecular formula annotation - implementation of GenForm [6]  (`bash/jobsubmit_6genform.sh` for parallel job submission).
  
-     **INPUT:** `compounds.txt`, `compound/MSMS/*`, `compound/MSMS/*/MS1.txt`, `compound/MSMS/*/FF.txt`, `parameter_genform.sh`, `globalvar.sh`
+     **INPUT:** `compounds.txt`, `compound/MSMS/*`, `compound/MSMS/*/MS1.txt`, `FF_compound.txt`, `parameter_genform.sh`, `globalvar.sh`
      
       **OUTPUT:** `compound/MSMS/*/*.out` `compound/MSMS/*/Clean_*.txt`
+      
+ ### Description of input files:
  
- ### References
+ `globalvar.sh`: environmental variables used for running the scripts
+ 
+ `compounds.txt`: list of compound strings
+ 
+ `class.csv`: class file used in xcms
+ 
+ `settings_xcms.yaml`: xcms settings
+ 
+ `settings_camera.yaml`: camera settings
+ 
+ `parameter_statistic.sh`: parameters applied in the calculation of the statistics
+ 
+ `parameter_filter.sh`: parameters applied in the metabolite filtering
+ 
+ `parameter_msms.sh`: parameters applied in the MSMS spectra extraction
+ 
+ `parameter_genform.sh`: parameters applied in the application of GenForm
+ 
+ `parent_compound.txt`: m/z value of the predicted ion for the parent compound
+ 
+ `target_compound.txt`: list of m/z values of already known metabolites
+ 
+ `RT_compound.txt`: Retention time of the parent compound
+ 
+ `FF_compound.txt`: Fuzzy formula applied in GenForm molecular formula annotation
+ 
+ ### Description of output files: 
+ 
+ `xcms.RData`: RData file containing the `xcmsSet`
+ 
+ `camera.RData`: RData file containing the ouput of CAMERA
+ 
+ `metadata.tsv`: tab seperated metadata of CAMERA
+ 
+ `peaklist.tsv`:tab seperated peaklist
+ 
+ `compound/Stat_compound.RData`: RData file containing the calculated statistics
+ 
+ `compound/Diff_compound.png`: Visualization of the fold change cut-off, representing the log2 of the mean intensity of the incubated group over the mean of the other samples
+ 
+ `compound/Volcano_compound.png`: Visualization of the p-value over the log2 fold change
+ 
+ `compound/MDF_compound.png`: Visualization of the mass defect shift (compared to the parent compound) and m/z value
+ 
+ `compound/Feature_compound.png`: Visualization the m/z value over retention time of all remaining features 
+ 
+ `compound/Metabolite_compound.txt`: Text file containing the remaining feature peakids (mass@rt)
+ 
+ `compound/EIC_metabolite`: Folder containing the EIC of all features - color coded by group
+ 
+ `compound/MSMS/*`: Folder containing the extracted MSMS spectra as `.txt` for all applied features
+ 
+ `compound/MSMS/*/*.out` : Genform output for all applied MSMS spectra
+ 
+ `compound/MSMS/*/Clean_*.txt`: Spectra only containing the fragments that can be explained by the given formula
+ 
+ ### References:
  
  [1] Smith, C. A.; Want, E. J.; O’Maille, G.; Abagyan, R.; Siuzdak, G. XCMS: Processing Mass Spectrometry Data for Metabolite Profiling Using Nonlinear Peak Alignment, Matching, and Identification. Anal. Chem. 2006, 78 (3), 779–787. https://doi.org/10.1021/ac051437y.
  
