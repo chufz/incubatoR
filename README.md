@@ -50,8 +50,13 @@ Follwing calculation steps are provided:
  ### References
  
  [1] Smith, C. A.; Want, E. J.; O’Maille, G.; Abagyan, R.; Siuzdak, G. XCMS: Processing Mass Spectrometry Data for Metabolite Profiling Using Nonlinear Peak Alignment, Matching, and Identification. Anal. Chem. 2006, 78 (3), 779–787. https://doi.org/10.1021/ac051437y.
+ 
  [2] Hochreiter, S. Bioinformatics Research and Development: First International Conference, BIRD 2007, Berlin, Germany, March 12-14, 2007, Proceedings; Springer Science & Business Media, 2007.
+ 
  [3] (1) Kumar, N.; Hoque, Md. A.; Sugimoto, M. Robust Volcano Plot: Identification of Differential Metabolites in the Presence of Outliers. BMC Bioinformatics 2018, 19. https://doi.org/10.1186/s12859-018-2117-2.
+ 
  [4] Gatto, L.; Lilley, K. S. MSnbase-an R/Bioconductor Package for Isobaric Tagged Mass Spectrometry Data Visualization, Processing and Quantitation. Bioinformatics 2012, 28 (2), 288–289. https://doi.org/10.1093/bioinformatics/btr645.
+ 
  [5] Lawson, T. N.; Weber, R. J. M.; Jones, M. R.; Chetwynd, A. J.; Rodrı́guez-Blanco, G.; Di Guida, R.; Viant, M. R.; Dunn, W. B. MsPurity: Automated Evaluation of Precursor Ion Purity for Mass Spectrometry-Based Fragmentation in Metabolomics. Anal. Chem. 2017, 89 (4), 2432–2439. https://doi.org/10.1021/acs.analchem.6b04358.
+ 
  [6] Meringer, M.; Reinker, S.; Zhang, J.; Muller, A. MS/MS Data Improves Automated Determination of Molecular Formulas by Mass Spectrometry. MATCH Communications in Mathematical and in Computer Chemistry 2011, 65, 259–290.
