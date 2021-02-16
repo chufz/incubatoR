@@ -28,10 +28,11 @@ Different ionization modes are stored in seperate folders named `Pos` and `Neg`.
 
 Follwing calculation steps are provided:
 
- 1. Peaklist generation (XCMS [1] and CAMERA [2]) by xcms.R and camera.R (jobsubmit_1xcms.sh and jobsubmit_camera for parallel job submission)
+ 1. Peaklist generation (XCMS [1] and CAMERA [2]) by xcms.R and camera.R (jobsubmit_1xcms.sh and jobsubmit_camera for parallel job submission).
+ 
       *XCMS:*
       
-      **INPUT:** settingsfile, classfile, `globalvar.sh`
+      **INPUT:** `settings_xcms.yaml`, `class.cav`, `globalvar.sh`
       
       **OUTPUT:** `xcms.RData`
       
