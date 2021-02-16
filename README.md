@@ -10,7 +10,7 @@ An example dataset has been  deposited to the EMBL-EBI MetaboLights database39 (
 
 The code was modified to run on a entOS7 high performance computation (HPC) cluster based on the R language (v 3.6.1) and wrapped in bash shell commands for parallel processing and job submission using the unix shell job sheduler command `qsub`.
 
-## Sample Nomenclature: 
+## Sample nomenclature: 
 
 The sample set should contain measurements of incubated replicates of each compound, a reference standard solution, negative controls and injection/ sample peparation blanks. 
 
@@ -29,23 +29,47 @@ Different ionization modes are stored in seperate folders named `Pos` and `Neg`.
 Follwing calculation steps are provided:
 
  1. Peaklist generation (XCMS [1] and CAMERA [2]) by xcms.R and camera.R (jobsubmit_1xcms.sh and jobsubmit_camera for parallel job submission)
-      INPUT:
-      OUTPUT:
+      *XCMS:*
+      
+      **INPUT:** settingsfile, classfile, `globalvar.sh`
+      
+      **OUTPUT:** `xcms.RData`
+      
+      *CAMERA:*
+      
+      **INPUT:** settingsfile, `xcms.RData`, `globalvar.sh`
+      
+      **OUTPUT:** `camera.RData`, `metadata.tsv`, `peaklist.tsv`
+      
  2. Calculation of the statistical comparisson by statistics.R (jobsubmit_2statistics.sh for parallel job submission), including the package Rvolcano [3] in case of the application of robust stastistics.
-      INPUT:
-      OUTPUT:
- 3. Filtering of non-metabolic features by several cut-off values and plotting for manual evaluation by metabolites.R (jobsubmit_3metabolites.sh for parallel job submission)
-      INPUT:
-      OUTPUT:
- 4. EIC extraction of the suspected metabolite features eic.R (jobsubmit_4eic.sh for parallel job submission), based on MSnBase [4]
-      INPUT:
-      OUTPUT:
- 5. MSMS extraction an spectral purity evaluation (implementation of MSpurity [5]) by ddextract.R (jobsubmit_5ddextract.sh for parallel job submission)
-      INPUT:
-      OUTPUT:
+ 
+      **INPUT:** `compounds.txt`, `metadata.tsv`, `peaklist.tsv`, `parameter_statistic.sh`, `globalvar.sh`
+      
+      **OUTPUT:** `compound/Stat_compound.RData`
+      
+ 3. Filtering of non-metabolic features by several cut-off values and plotting for manual evaluation by metabolites.R (jobsubmit_3metabolites.sh for parallel job submission).
+ 
+      **INPUT:** `compounds.txt`, `Stat_compound.RData`, `parent_compound.txt`, `target_compound.txt`, `parameter_filter.sh`, `globalvar.sh`
+      
+      **OUTPUT:** `compound/Diff_compound.png`, `compound/Volcano_compound.png`, `compound/MDF_compound.png`, `compound/Feature_compound.png`, `compound/Metabolite_compound.txt`
+      
+ 4. EIC extraction of the suspected metabolite features eic.R (jobsubmit_4eic.sh for parallel job submission), based on MSnBase [4].
+ 
+      **INPUT:** `compounds.txt`, `compound/Metabolite_compound.txt`, `globalvar.sh`
+      
+      **OUTPUT:** `compound/EIC_metabolite`
+      
+ 5. MSMS extraction an spectral purity evaluation (implementation of MSpurity [5]) by ddextract.R (jobsubmit_5ddextract.sh for parallel job submission).
+ 
+      **INPUT:** `compounds.txt`, `compound/Metabolite_compound.txt`, `parameter_msms.sh`, `globalvar.sh`
+      
+      **OUTPUT:** `compound/MSMS/*`
+      
  6. Molecular formula annotation - implementation of GenForm [6]  (jobsubmit_6genform.sh for parallel job submission).
-      INPUT:
-      OUTPUT:
+ 
+     **INPUT:** `compounds.txt`, `compound/MSMS/*`, `compound/MSMS/*/MS1.txt`, `compound/MSMS/*/FF.txt`, `parameter_genform.sh`, `globalvar.sh`
+     
+      **OUTPUT:** `compound/MSMS/*/*.out` `compound/MSMS/*/Clean_*.txt`
  
  ### References
  
