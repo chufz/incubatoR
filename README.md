@@ -28,7 +28,7 @@ Different ionization modes are stored in seperate folders named `Pos` and `Neg`.
 
 Follwing calculation steps are provided:
 
- 1. Peaklist generation (XCMS [1] and CAMERA [2]) by xcms.R and camera.R (jobsubmit_1xcms.sh and jobsubmit_camera for parallel job submission).
+ 1. Peaklist generation (XCMS [1] and CAMERA [2]) by `Rscripts/xcms.R` and `Rscripts/camera.R` (`bash/jobsubmit_1xcms.sh` and `bash/jobsubmit_camera.sh` for parallel job submission).
  
       *XCMS:*
       
@@ -42,31 +42,31 @@ Follwing calculation steps are provided:
       
       **OUTPUT:** `camera.RData`, `metadata.tsv`, `peaklist.tsv`
       
- 2. Calculation of the statistical comparisson by statistics.R (jobsubmit_2statistics.sh for parallel job submission), including the package Rvolcano [3] in case of the application of robust stastistics.
+ 2. Calculation of the statistical comparisson by `Rscripts/statistics.R` (`bash/jobsubmit_2statistics.sh` for parallel job submission), including the package Rvolcano [3] in case of the application of robust stastistics.
  
       **INPUT:** `compounds.txt`, `metadata.tsv`, `peaklist.tsv`, `parameter_statistic.sh`, `globalvar.sh`
       
       **OUTPUT:** `compound/Stat_compound.RData`
       
- 3. Filtering of non-metabolic features by several cut-off values and plotting for manual evaluation by metabolites.R (jobsubmit_3metabolites.sh for parallel job submission).
+ 3. Filtering of non-metabolic features by several cut-off values and plotting for manual evaluation by `Rscripts/metabolites.R` (`bash/jobsubmit_3metabolites.sh` for parallel job submission).
  
       **INPUT:** `compounds.txt`, `Stat_compound.RData`, `parent_compound.txt`, `target_compound.txt`, `parameter_filter.sh`, `globalvar.sh`
       
       **OUTPUT:** `compound/Diff_compound.png`, `compound/Volcano_compound.png`, `compound/MDF_compound.png`, `compound/Feature_compound.png`, `compound/Metabolite_compound.txt`
       
- 4. EIC extraction of the suspected metabolite features eic.R (jobsubmit_4eic.sh for parallel job submission), based on MSnBase [4].
+ 4. EIC extraction of the suspected metabolite features`Rscripts/eic.R` (`bash/jobsubmit_4eic.sh` for parallel job submission), based on MSnBase [4].
  
       **INPUT:** `compounds.txt`, `compound/Metabolite_compound.txt`, `globalvar.sh`
       
       **OUTPUT:** `compound/EIC_metabolite`
       
- 5. MSMS extraction an spectral purity evaluation (implementation of MSpurity [5]) by ddextract.R (jobsubmit_5ddextract.sh for parallel job submission).
+ 5. MSMS extraction an spectral purity evaluation (implementation of MSpurity [5]) by `Rscripts/ddextract.R` (`bash/jobsubmit_5ddextract.sh` for parallel job submission).
  
       **INPUT:** `compounds.txt`, `compound/Metabolite_compound.txt`, `parameter_msms.sh`, `globalvar.sh`
       
       **OUTPUT:** `compound/MSMS/*`
       
- 6. Molecular formula annotation - implementation of GenForm [6]  (jobsubmit_6genform.sh for parallel job submission).
+ 6. Molecular formula annotation - implementation of GenForm [6]  (`bash/jobsubmit_6genform.sh` for parallel job submission).
  
      **INPUT:** `compounds.txt`, `compound/MSMS/*`, `compound/MSMS/*/MS1.txt`, `compound/MSMS/*/FF.txt`, `parameter_genform.sh`, `globalvar.sh`
      
