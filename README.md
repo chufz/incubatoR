@@ -34,13 +34,13 @@ Follwing calculation steps are provided:
       
       **INPUT:** `settings_xcms.yaml`, `class.csv`, `globalvar.sh`
       
-      **OUTPUT:** `xcms.RData`
+      **OUTPUT:** `xcms.rds`
       
       *CAMERA:*
       
-      **INPUT:** `settings_camera.yaml`, `xcms.RData`, `globalvar.sh`
+      **INPUT:** `settings_camera.yaml`, `xcms.rds`, `globalvar.sh`
       
-      **OUTPUT:** `camera.RData`, `metadata.tsv`, `peaklist.tsv`
+      **OUTPUT:** `camera.rds`, `metadata.tsv`, `peaklist.tsv`
       
  2. Calculation of the statistical comparisson by `Rscripts/statistics.R` (`bash/jobsubmit_2statistics.sh` for parallel job submission), including the package Rvolcano [3] in case of the application of robust stastistics.
  
@@ -102,9 +102,9 @@ Follwing calculation steps are provided:
  
  ### Description of output files: 
  
- `xcms.RData`: RData file containing the `xcmsSet`
+ `xcms.rds`: RData file containing the `xcmsSet`
  
- `camera.RData`: RData file containing the ouput of CAMERA
+ `camera.rds`: RData file containing the ouput of CAMERA
  
  `metadata.tsv`: tab seperated metadata of CAMERA
  
