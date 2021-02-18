@@ -1,13 +1,7 @@
 #!/usr/bin/env Rscript
 # Script for extracting EIC with a 3-group color code
 # Usage Rscript eic.R [textfile] [pattern1] [pattern2] [pattern3] [mzml_directory] [output_directory] [rt_window] [mz_window] [logical_rtinminutes?] [logical_peakids?] 
-# argument [textfile]
-# argument [pattern1]
-# argument [pattern2]
-# argument [pattern3]
-
 args = commandArgs(trailingOnly=TRUE)
-
 ############################################
 library(xcms)
 library(ggplot2)
