@@ -10,8 +10,8 @@ settings <- read_yaml(args[1])
 xset <- readRDS(args[2])
 
 an <- xsAnnotate(xset)
-anF <- groupFWHM(an, perfwhm= as.numeric(settings$perfwhm))
-anI <- findIsotopes(anF, as.numeric(mzabs= settings$mzabs))
+anF <- groupFWHM(an, perfwhm=as.numeric(settings$perfwhm))
+anI <- findIsotopes(anF, mzabs=as.numeric(settings$mzabs))
 
 # look at EIC (mzmLData needed)
 anIC <- groupCorr(anI, cor_eic_th = as.numeric(settings$cor_eic_th))
