@@ -1,45 +1,45 @@
 xcmsSet:
-	method:	"centWave"
-	peakwidth_min:	5
-	peakwidth_max:  30
-	ppm:	7
-	noise:	0
-	snthresh:	10
-	mzdiff:	-0.001
-	prefilter_min:	3
-	prefilter_max:	100
-	mzCenterFun:	"wMean"
-	integrate:	1
-	fitgauss:	FALSE
-	verbose:	FALSE
-	
+  method:  "centWave"
+  peakwidth_min:  5
+  peakwidth_max:  30
+  ppm:  7
+  noise:  0
+  snthresh:  10
+  mzdiff:  -0.001
+  prefilter_min:  3
+  prefilter_max:  100
+  mzCenterFun:  "wMean"
+  integrate:  1
+  fitgauss:  FALSE
+  verbose:  FALSE
+
 group:
-	method:	"density"
-	bw:	12
-	mzwid:	0.001
-	minsamp:	1
-	max:	100
+  method:  "density"
+  bw:  12
+  mzwid:  0.001
+  minsamp:  1
+  max:  100
 
 retcor:
-	method:	"obiwarp"
-	plottype:	"none"
-	distFunc:	"cor_opt"
-	profStep:	0.91
-	center:	1
-	response:	1
-	gapInit:	0.352
-	gapExtend:	2.7
-	factorDiag:	2
-	factorGap:	1
-	localAlignment:	0
+  method:  "obiwarp"
+  plottype:  "none"
+  distFunc:  "cor_opt"
+  profStep:  0.91
+  center:  1
+  response:  1
+  gapInit:  0.352
+  gapExtend:  2.7
+  factorDiag:  2
+  factorGap:  1
+  localAlignment:  0
 
 group2:
-	method:	"density"
-	bw:	12
-	mzwid:	0.001
-	minsamp:	1
-	max:	100
+  method:  "density"
+  bw:  12
+  mzwid:  0.001
+  minsamp:  1
+  max:  100
 
-fillPeaks:	True
+fillPeaks:  True
 
 
