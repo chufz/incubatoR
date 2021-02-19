@@ -19,17 +19,17 @@ anIC <- groupCorr(anI, cor_eic_th = as.numeric(settings$cor_eic_th))
 if(args[3]=="Pos"){pol <- "positive" }else{pol <- "negative"}
 anFA <- findAdducts(anIC, polarity=pol)
 peaklist <- getPeaklist(anFA)
-
+message("Output contains: ", colnames(peaklist))
 # split file
-groups_no <- length(groups(xset))
-file_no <- length(samples(xset))
+groups_no <- length(unique(phenoData(xset)$class))
+file_no <- length(filepaths(xset))
 message("Splitting file for ", groups_no, " groups and ", file_no, " sample files")
-peaklist_only <- peaklist[,(16+groups_no):ncol(peaklist)-34
-metadata <- cbind(peaklist[1:(15+groups_no)], peaklist[,(ncol(peaklist))-3:ncol(peaklist)])
+peaklist_only <- peaklist[,(8+groups_no):(ncol(peaklist)-3)]
+metadata <- cbind(peaklist[,1:(7+groups_no)], peaklist[,(ncol(peaklist)-2):ncol(peaklist)])
 
 # save as tsv
-write.table(peaklist_only, paste0(args[4],"peaklist.tsv"), col.names=F, quote=F, sep='\t')
-write.table(metadata, paste0(args[4],"metadata.tsv"), col.names=F, quote=F, sep='\t')
+write.table(peaklist_only, paste0(args[4],"/peaklist.tsv"), col.names=T, quote=F, sep='\t')
+write.table(metadata, paste0(args[4],"/metadata.tsv"), col.names=T, quote=F, sep='\t')
 
 # save camera file
 saveRDS(anFA, file=paste0(args[4],"/camera.rds"))
