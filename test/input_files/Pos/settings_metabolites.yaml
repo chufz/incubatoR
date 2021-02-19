@@ -1,0 +1,8 @@
+FC_cutoff: 2 
+p_cutoff: 1
+mz_diff: 0.001
+mz_upper_cutoff: 50
+mdf_upper_cutoff: 50
+mdf_lower_cutoff: 100
+isotope_color: TRUE
+isotope_removal: TRUE
