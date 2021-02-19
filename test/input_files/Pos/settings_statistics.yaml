@@ -1,0 +1,7 @@
+blank_removal:  FALSE
+bigger_than_group: TRUE
+blank_threshold: 1e4
+blankpattern: "lank|B[1,2]"
+robust_FC: FALSE
+robust_ttest: FALSE
+remove_colums: 1
