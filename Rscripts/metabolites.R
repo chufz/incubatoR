@@ -162,7 +162,7 @@ legend("top",bty='n', horiz=T, inset=c(0,-0.15), xjust=0.5, legend=c(paste0(" In
 dev.off()
 ########################################
 message("[Volcano.R] Saving PeakID list")
-metabolites <- r$names[which(nchar(r$names)>0)]
+metabolites <- paste0(round(r$mz,5), "@", round(r$rt/60, 3))
 write.table(metabolites, file=paste0(args[2],"/Metabolites.txt" ), row.names = F, col.names = F)
 ########################################
 message("[Volcano.R] Save decriptive Statistics in csv")

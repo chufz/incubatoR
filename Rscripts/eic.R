@@ -12,8 +12,14 @@ message("[EIC] Read in feature")
 result_final <- read.table(file=args[1])
 
 #read in either mz values or peakids
-if(args[10]==T) features <- strsplit(as.character(result_final[,1]),"@")
-if(args[10]==F) features <- result_final[,1]
+if(as.logical(args[10])==T){
+	message("[EIC] Treating as Feature peakIDs (mz@rt)")
+	features <- strsplit(as.character(result_final[,1]),"@")
+	}
+if(as.logical(args[10])==F){
+	message("[EIC] Only mz provided")
+	features <- result_final[,1]
+	}
 
 
 message("[EIC] Get files")
@@ -36,9 +42,9 @@ if(!dir.exists(output)){ dir.create(output)}
 
 # Plot chomatogramms
 for(i in 1:length(features)){
-    if(args[10]==T){
+    if(as.logical(args[10])==T){
         rt <- as.numeric(features[[i]][2])
-        if(args[9]==FALSE){
+        if(as.logical(args[9])==FALSE){
             rt <- rt/60
         }
         mz <- as.numeric(features[[i]][1])
@@ -46,7 +52,7 @@ for(i in 1:length(features)){
         rt_range <- c( (rt - as.numeric(args[7]))*60, (rt + as.numeric(args[7]))*60)
     }
     
-    if(args[10]==F){
+    if(as.logical(args[10])==F){
         rt_range <- c(120,1200)
         mz <- as.numeric(features[i])
     }
