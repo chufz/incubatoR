@@ -44,31 +44,31 @@ Follwing calculation steps are provided:
       
  2. Calculation of the statistical comparisson by `Rscripts/statistics.R` (`bash/jobsubmit_2statistics.sh` for parallel job submission), including the package Rvolcano [3] in case of the application of robust stastistics.
  
-      **INPUT:** `compounds.txt`, `metadata.tsv`, `peaklist.tsv`, `parameter_statistic.sh`, `globalvar.sh`
+      **INPUT:** `class.csv`, `metadata.tsv`, `peaklist.tsv`, `settings_statistic.yaml`, `globalvar.sh`
       
-      **OUTPUT:** `compound/Stat_compound.RData`
+      **OUTPUT:** `compound/Result_compound.rds`
       
  3. Filtering of non-metabolic features by several cut-off values and plotting for manual evaluation by `Rscripts/metabolites.R` (`bash/jobsubmit_3metabolites.sh` for parallel job submission).
  
-      **INPUT:** `compounds.txt`, `Stat_compound.RData`, `parent_compound.txt`, `target_compound.txt`, `parameter_filter.sh`, `globalvar.sh`
+      **INPUT:** `class.csv`, `Result_compound.rds`, `rt_compound.txt`, `parent_compound.txt`, `target_compound.txt`, `settings_metabolites.yaml`, `globalvar.sh`
       
-      **OUTPUT:** `compound/Diff_compound.png`, `compound/Volcano_compound.png`, `compound/MDF_compound.png`, `compound/Feature_compound.png`, `compound/Metabolite_compound.txt`
+      **OUTPUT:** `compound/diffplot.png`, `compound/volcano.png`, `compound/MDF.png`, `compound/Feature.png`, `compound/Metabolites.txt`
       
  4. EIC extraction of the suspected metabolite features`Rscripts/eic.R` (`bash/jobsubmit_4eic.sh` for parallel job submission), based on MSnBase [4].
  
-      **INPUT:** `compounds.txt`, `compound/Metabolite_compound.txt`, `globalvar.sh`
+      **INPUT:** `class.csv`, `compound/Metabolites.txt`, `globalvar.sh`
       
       **OUTPUT:** `compound/EIC_metabolite`
       
  5. MSMS extraction an spectral purity evaluation (implementation of MSpurity [5]) by `Rscripts/ddextract.R` (`bash/jobsubmit_5ddextract.sh` for parallel job submission).
  
-      **INPUT:** `compounds.txt`, `compound/Metabolite_compound.txt`, `parameter_msms.sh`, `globalvar.sh`
+      **INPUT:** `class.csv`, `compound/Metabolites.txt`, `parameter_msms.sh`, `globalvar.sh`
       
       **OUTPUT:** `compound/MSMS/*`
       
  6. Molecular formula annotation - implementation of GenForm [6]  (`bash/jobsubmit_6genform.sh` for parallel job submission).
  
-     **INPUT:** `compounds.txt`, `compound/MSMS/*`, `compound/MSMS/*/MS1.txt`, `FF_compound.txt`, `parameter_genform.sh`, `globalvar.sh`
+     **INPUT:** ``class.csv`, `compound/MSMS/*`, `compound/MSMS/*/MS1.txt`, `FF_compound.txt`, `parameter_genform.sh`, `globalvar.sh`
      
       **OUTPUT:** `compound/MSMS/*/*.out` `compound/MSMS/*/Clean_*.txt`
       
@@ -76,19 +76,15 @@ Follwing calculation steps are provided:
  
  `globalvar.sh`: environmental variables used for running the scripts
  
- `compounds.txt`: list of compound strings
- 
  `class.csv`: class file used in xcms
  
  `settings_xcms.yaml`: xcms settings
  
  `settings_camera.yaml`: camera settings
  
- `parameter_statistic.sh`: parameters applied in the calculation of the statistics
+ `settings_statistics.yaml`: parameters applied in the calculation of the statistics
  
- `parameter_filter.sh`: parameters applied in the metabolite filtering
- 
- `parameter_msms.sh`: parameters applied in the MSMS spectra extraction
+ `settings_metabolites.yaml`: parameters applied in the metabolite filtering
  
  `parameter_genform.sh`: parameters applied in the application of GenForm
  
@@ -110,19 +106,19 @@ Follwing calculation steps are provided:
  
  `peaklist.tsv`:tab seperated peaklist
  
- `compound/Stat_compound.RData`: RData file containing the calculated statistics
+ `compound/Result_compound.rds`: RData file containing the calculated statistics
  
- `compound/Diff_compound.png`: Visualization of the fold change cut-off, representing the log2 of the mean intensity of the incubated group over the mean of the other samples
+ `compound/diffplot.png`: Visualization of the fold change cut-off, representing the log2 of the mean intensity of the incubated group over the mean of the other samples
  
- `compound/Volcano_compound.png`: Visualization of the p-value over the log2 fold change
+ `compound/volcano.png`: Visualization of the p-value over the log2 fold change
  
- `compound/MDF_compound.png`: Visualization of the mass defect shift (compared to the parent compound) and m/z value
+ `compound/MDF.png`: Visualization of the mass defect shift (compared to the parent compound) and m/z value
  
- `compound/Feature_compound.png`: Visualization the m/z value over retention time of all remaining features 
+ `compound/Feature.png`: Visualization the m/z value over retention time of all remaining features 
  
- `compound/Metabolite_compound.txt`: Text file containing the remaining feature peakids (mass@rt)
+ `compound/Metabolite.txt`: Text file containing the remaining feature peakids (mass@rt)
  
- `compound/EIC_metabolite`: Folder containing the EIC of all features - color coded by group
+ `compound/EIC`: Folder containing the EIC of all features - color coded by group
  
  `compound/MSMS/*`: Folder containing the extracted MSMS spectra as `.txt` for all applied features
  
