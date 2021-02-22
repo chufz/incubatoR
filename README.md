@@ -2,7 +2,7 @@
 
 ## Description:
 
-This repository is containing the code used in "Improving the screening annotation level of pesticide metabolites with combined high-throughput in-vitro incubation and automated LC-HRMS data processing" for reproducibility. 
+This repository is containing the code used in "Improving the screening analysis of pesticide metabolites in human biomonitoring by combining high-throughput in-vitro incubation and automated LC-HRMS data processing" for reproducibility. 
 
 Main task are to identify metabolic transformation products in a LC-HRMS2 dataset of in-parallel incubated xenobiotic compounds by applying statistical tools as well as mass defect filtering and extraction of the respective mass spectra for spectal library generation.
 
