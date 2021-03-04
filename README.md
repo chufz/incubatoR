@@ -68,7 +68,7 @@ Follwing calculation steps are provided:
       
  6. Molecular formula annotation - implementation of GenForm [6]  (`bash/jobsubmit_6genform.sh` for parallel job submission).
  
-     **INPUT:** ``class.csv`, `compound/MSMS/*`, `compound/MSMS/*/MS1.txt`, `FF_compound.txt`, `parameter_genform.sh`, `globalvar.sh`
+     **INPUT:** `class.csv`, `compound/MSMS/*`, `compound/MSMS/*/MS1.txt`, `FF_compound.txt`, `parameter_genform.sh`, `globalvar.sh`
      
       **OUTPUT:** `compound/MSMS/*/*.out` `compound/MSMS/*/Clean_*.txt`
       
