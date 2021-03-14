@@ -10,6 +10,10 @@ library(stringr)
 library(msPurity)
 library(mzR)
 ########################################
+if(!dir.exists(args[3])){
+    message("[DDextract] Create directory")
+    dir.create(args[3])}
+########################################
 message("[DDextract] Read in data")
 peakids <- read.table(file=args[1], header= F)
 mz <- as.numeric(unlist(lapply(strsplit(peakids[,1], "@"), function(x){x[1]})))
