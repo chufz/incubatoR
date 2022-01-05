@@ -4,7 +4,7 @@
 
 This repository is containing the code used in "Improving the screening analysis of pesticide metabolites in human biomonitoring by combining high-throughput in-vitro incubation and automated LC-HRMS data processing" for reproducibility. 
 
-Main task are to identify metabolic transformation products in a LC-HRMS2 dataset of in-parallel incubated xenobiotic compounds by applying statistical tools as well as mass defect filtering and extraction of the respective mass spectra for spectal library generation.
+Main task is to identify metabolic transformation products in a LC-HRMS2 dataset of in-parallel incubated xenobiotic compounds by applying statistical tools as well as mass defect filtering and extraction of the respective mass spectra for spectal library generation.
 
 An example dataset has been  deposited to the EMBL-EBI MetaboLights database (DOI: 10.1093/nar/gkz1019, PMID:31691833) with the identifier MTBLS2402 and is accessible directly at https://www.ebi.ac.uk/metabolights/MTBLS2402.
 
